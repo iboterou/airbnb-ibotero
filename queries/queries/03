@@ -1,0 +1,8 @@
+--What is the most recent review?
+SELECT r.date_reviewed, r.reviewer_name, r.listing_id, l.name AS listing_name
+FROM reviews r
+JOIN listings l ON r.listing_id = l.id
+ORDER BY r.date_reviewed DESC
+LIMIT 1;
+--Verdict: Not fully trust because of Limit 1. There may be multiple reviews that happen on the same day, and this does not include time
+-- For this reason, you need to increase the limit to ensure it is the most recent and there were not multiple reviews on the same day

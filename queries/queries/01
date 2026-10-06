@@ -1,0 +1,10 @@
+--What is the average nightly price in Lincoln Park?
+SELECT AVG(price) 
+FROM listings 
+WHERE neighborhood = 'Lincoln Park';
+--Verdict: I do not trust this output as it was 0 and that does not make sense
+-- I pushed Gemini and realized that the price column was likely not a numeric value and instead text, so it cannot be averaged
+-- By converting to a numeric column, you do get an answer
+--SELECT AVG(CAST(REPLACE(REPLACE(price, '$', ''), ',', '') AS REAL))
+--FROM listings
+--WHERE neighborhood = 'Lincoln Park';

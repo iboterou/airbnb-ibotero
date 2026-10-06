@@ -1,0 +1,7 @@
+--Which 5 Chicago neighborhoods have the highest number of short-term rentals, and what is the average nightly price in those areas?
+SELECT neighborhood, COUNT(id) AS total_listings, ROUND(AVG(price), 2) AS average_price
+FROM listings
+GROUP BY neighborhood
+ORDER BY total_listings DESC
+LIMIT 5;
+--Verdict: This did not work for the same reason as question 1. Price is currently text and you need to make it numerical for it to average the price
